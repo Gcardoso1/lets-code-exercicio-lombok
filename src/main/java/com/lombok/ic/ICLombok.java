@@ -36,4 +36,5 @@ public class ICLombok implements IIC{
     public int solicitarIngresso(){
         return (int) Math.round(Math.random() * 1);
     }
+
 }

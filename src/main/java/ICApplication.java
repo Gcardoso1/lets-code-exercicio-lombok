@@ -12,6 +12,7 @@ public class ICApplication {
         Integer idade;
         String nome;
         String raca;
+        Boolean verificar;
 
         System.out.println("Digite o nome: ");
         nome = input.next();
@@ -19,9 +20,18 @@ public class ICApplication {
         System.out.println("Digite a idade: ");
         idade = input.nextInt();
 
-        System.out.print("Humano \nGree \nRakata\n");
-        System.out.println("Selecione uma das raças: ");
-        raca = input.next();
+        do {
+            System.out.print("Humano \nGree \nRakata\n");
+            System.out.println("Selecione uma das raças: ");
+            raca = input.next();
+            if(raca.equals("Humano") || raca.equals("Rakata") || raca.equals("Gree")){
+                verificar = Boolean.FALSE;
+            }else{
+                System.out.println("Raça inválida! Tente novamente...");
+                verificar = Boolean.TRUE;
+            }
+        } while(verificar);
+
 
         ICLombok rebeldeBuilder = ICLombok.builder()
                 .nome(nome)
@@ -42,5 +52,7 @@ public class ICApplication {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
+
     }
+
 }
