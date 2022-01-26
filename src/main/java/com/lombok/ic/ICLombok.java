@@ -32,4 +32,8 @@ public class ICLombok implements IIC{
         writer.println("INTELIGENCIA CENTRAL");
         writer.println("Nome: " + nome + ", Idade: " + idade + " e Raça: " + raca);
     }
+
+    public int solicitarIngresso(){
+        return (int) Math.round(Math.random() * 1);
+    }
 }

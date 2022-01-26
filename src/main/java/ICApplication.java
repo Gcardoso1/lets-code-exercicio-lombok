@@ -23,15 +23,20 @@ public class ICApplication {
         System.out.println("Selecione uma das raças: ");
         raca = input.next();
 
-        ICLombok cafeBuilder = ICLombok.builder()
+        ICLombok rebeldeBuilder = ICLombok.builder()
                 .nome(nome)
                 .idade(idade)
                 .raca(raca)
                 .build();
-        System.out.println("Café com Builder: " + cafeBuilder.toString());
+        System.out.println("Rebelde com Builder: " + rebeldeBuilder.toString());
 
         try {
-            cafeBuilder.imprimirRebelde(cafeBuilder.getNome(), cafeBuilder.getIdade(), cafeBuilder.getRaca());
+            if(rebeldeBuilder.solicitarIngresso() > 0) {
+                System.out.println("O Rebelde foi admitido!");
+                rebeldeBuilder.imprimirRebelde(rebeldeBuilder.getNome(), rebeldeBuilder.getIdade(), rebeldeBuilder.getRaca());
+            }else{
+                System.out.println("Desculpe, o Rebelde não foi admitido");
+            }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (UnsupportedEncodingException e) {
